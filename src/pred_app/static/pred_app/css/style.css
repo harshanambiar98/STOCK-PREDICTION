@@ -9,6 +9,10 @@ html, .main {
     margin: 0 auto;
 }
 
+.sidenav h1{
+	color: #f1f1f1;
+    padding: 16px 8px 6px 16px;
+}
 
 .league-name {
     display: block;
@@ -36,7 +40,6 @@ h1 {
     padding: 30px 0 0;
     color: #636363;
     font: bold 38px/1.2em Roboto, Arial, sans-serif;
-    text-align: center;
 }
 h1 a, h1 a:hover {
     text-decoration: none;
@@ -408,9 +411,9 @@ ol li .send {
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 16px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
 }
@@ -418,3 +421,4 @@ ol li .send {
 .sidenav a:hover {
   color: #f1f1f1;
 }
+
