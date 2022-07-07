@@ -1,12 +1,8 @@
+from .lstm_prediction import lstm_prediction
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from pred_app.forms import LoginForm, SignUpForm
-from pred_app.lstm_prediction import *
-from django import template
+from .forms import *
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
-from django.urls import reverse
 
 
 # --------------- MAIN WEB PAGES -----------------------------
@@ -16,10 +12,7 @@ def redirect_root(request):
 
 @login_required(login_url="/pred_app/login/")
 def index(request):
-    context = {'segment': 'index'}
-
-    html_template = loader.get_template('home/index.html')
-    return HttpResponse(html_template.render(context, request))
+    return render(request, 'pred_app/index.html')
 
 
 def pred(request):
@@ -55,7 +48,7 @@ def login_view(request):
         else:
             msg = 'Error validating the form'
 
-    return render(request, "accounts/login.html", {"form": form, "msg": msg})
+    return render(request, "pred_app/login.html", {"form": form, "msg": msg})
 
 
 def register_user(request):
@@ -80,7 +73,7 @@ def register_user(request):
     else:
         form = SignUpForm()
 
-    return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+    return render(request, "pred_app/register.html", {"form": form, "msg": msg, "success": success})
 
 
 def logout_view(request):
